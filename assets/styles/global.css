@@ -1,0 +1,271 @@
+:root {
+  --color-background: #ffffff;
+  --color-text: #1e1e1e;
+  --color-text-a: #4261e9;
+  --color-header: #ececec;
+  --color-line: #cecece;
+}
+
+/* Тёмная тема */
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #1e1e1e;
+    --color-text: #d4d4d4;
+    --color-text-a: #279eee;
+  }
+} */
+
+/* .base (body) */
+
+.root {
+  margin: 0;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: normal;
+  line-height: 1.25;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+/* .container */
+
+.container {
+  box-sizing: border-box;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+@media screen and (min-width: 678px) {
+  .container {
+    box-sizing: border-box;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px 32px;
+  }
+}
+
+/* .header */
+
+.header {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.header__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 678px) {
+  .header__container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.header__logo {
+  margin: 0;
+  font-weight: bold;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.header__logo:hover {
+  color: var(--color-text-a);
+}
+
+.header__logo_is-home:hover {
+  color: var(--color-text);
+}
+
+/* .logo */
+
+.logo {
+  width: 108px;
+  height: 30px;
+}
+
+/* .nav */
+
+.nav {
+  margin: 16px 0 0;
+}
+
+@media screen and (min-width: 678px) {
+  .nav {
+    margin: 0;
+  }
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav__item {
+  margin: 0 16px 0 0;
+}
+
+.nav__item:last-of-type {
+  margin: 0;
+}
+
+.nav__link {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: 0.15s;
+}
+
+.nav__link:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--color-text-a);
+}
+
+.nav__link_is-active {
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+/* .tag-list */
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-list__item {
+  margin: 4px 8px 4px 0;
+}
+
+.tag-list__link {
+  padding: 3px 6px;
+  font-size: 12px;
+  border: 1px solid var(--color-text-a);
+  border-radius: 4px;
+  color: var(--color-text-a);
+  text-decoration: none;
+  transition: 0.15s
+}
+
+.tag-list__link:hover {
+  background-color: var(--color-text-a);
+  color: var(--color-background);
+}
+
+@media screen and (min-width: 678px) {
+  .tag-list__link {
+    font-size: inherit;
+  }
+}
+
+/* Стили печати */
+
+@media print {
+  .no-print, .no-print *
+  {
+    display: none !important;
+  }
+}
+
+/* Markdown. Элементы */
+
+
+/* Markdown. Блоки и инлайны кода */
+
+.markdown pre {
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  background: #f3f3f3;
+  color: #000000;
+  padding: 16px;
+  margin: 16px -16px;
+  overflow: auto;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+.markdown code {
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  padding: 2px 6px;
+  background-color: antiquewhite;
+  border-radius: 4px;
+}
+
+.markdown code[class*="language-"] {
+  font-size: 12px;
+  line-height: 1.375;
+  background-color: transparent;
+  font-family: inherit;
+  --code-string: #A31515;
+  --code-comment: #008000;
+  --code-variable: #001080;
+  --code-keyword: #0000FF;
+  --code-number: #098658;
+  --code-function: #795E26;
+  --code-class: #267F99;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  .markdown pre {
+    background: #141414;
+    color: #D4D4D4;
+  }
+
+  .markdown code[class*="language-"] {
+    --code-string: #CE9178;
+    --code-comment: #6A9955;
+    --code-variable: #9CDCFE;
+    --code-keyword: #569CD6;
+    --code-number: #B5CEA8;
+    --code-function: #DCDCAA;
+    --code-class: #4EC9B0;
+  }
+} */
+
+@media screen and (min-width: 678px) {
+  .markdown pre {
+    margin: 16px 0;
+    border-radius: 8px;
+  }
+  .markdown code[class*="language-"] {
+    font-size: 14px;
+  }
+}
+
+.markdown .token.comment, .markdown .token.prolog, .markdown .token.doctype, .markdown .token.cdata { color: var(--code-comment); }
+.markdown .token.keyword { color: var(--code-keyword); }
+.markdown .token.variable { color: var(--code-variable); }
+.markdown .token.number { color: var(--code-number); }
+.markdown .token.string { color: var(--code-string); }
+.markdown .token.function, .markdown .token.class-name { color: var(--code-function); }
+.markdown .token.builtin { color: var(--code-class); }
