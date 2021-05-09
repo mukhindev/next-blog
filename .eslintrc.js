@@ -20,5 +20,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/style-prop-object': 'off',
+    'arrow-body-style': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
   },
 };

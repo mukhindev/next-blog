@@ -1,3 +1,5 @@
+require('./data/createContext');
+
 module.exports = {
   future: {
     webpack5: true,

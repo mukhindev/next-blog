@@ -1,6 +1,8 @@
-import fs from 'fs';
-import matter from 'gray-matter';
-import slug from 'slug';
+const fs = require('fs');
+const matter = require('gray-matter');
+const slug = require('slug');
+
+console.log('Создаю контекст');
 
 const markdownRegex = /.md$/;
 
@@ -13,6 +15,7 @@ const contentMeta = files.reduce((acc, file) => {
   const name = file.replace('.md', '');
   data.name = name;
   data.path = `/${data.category}/${name}`;
+  data.tags = data.tags.map((tag) => tag.toLowerCase());
   acc.push(data);
   return acc;
 }, []);
@@ -40,6 +43,6 @@ const ctx = contentMeta.reduce((acc, meta) => {
   return acc;
 }, ctxTemplate);
 
-export function getContent() {
-  return ctx;
-}
+fs.writeFileSync('./data/context.json', JSON.stringify(ctx));
+
+console.log('Контекст создан');
